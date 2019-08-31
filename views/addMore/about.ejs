@@ -1,0 +1,62 @@
+<link href="/addMore/about/style.css" rel="stylesheet">
+
+<div id="aboutInput">
+
+    <div>
+        
+        <br><br><br>
+        
+        <!-- <span onclick="div_hide()" style="float:right" class="x">X</span> -->
+
+        <form action="/about" method="POST">
+
+            <input hidden name="url" value="<%=url%>">
+
+            <input hidden name="username" value="<%=user.username%>">
+
+        <div  style="margin-top:20px; width:700px; text-align: center" class="container">
+
+            <div style="margin-bottom:20px" class="card text-center">
+                    
+                <div class="card-header">
+                    Edit yout Info...
+                </div>
+                
+                <div class="card-body">
+                    
+                    <p>
+                        <textarea class="form-control" name="about[info]" placeholder="Write something about yourself..." rows="4"><%if(user.about.length){%><%=user.about[0].info%><%}%></textarea>
+                    </p>
+
+                    <h5>Contact Details</h5>
+
+                    Linked In
+                    <input class="form-control" placeholder="Linked Profile link" name="about[linkedin]" style="margin-bottom:10px" value="<%if(user.about.length){%><%=user.about[0].linkedin%><%}%>">
+
+                    Github
+                    <input class="form-control" placeholder="Github Profile link" name="about[github]" style="margin-bottom:10px" value="<%if(user.about.length){%><%=user.about[0].github%><%}%>">
+
+                    Facebook
+                    <input class="form-control" placeholder="Facebook Profile link" name="about[facebook]" style="margin-bottom:10px" value="<%if(user.about.length){%><%=user.about[0].facebook%><%}%>">
+                    
+                    Twitter
+                    <input class="form-control" placeholder="Twitter Profile link" name="about[twitter]" style="margin-bottom:10px" value="<%if(user.about.length){%><%=user.about[0].twitter%><%}%>">
+                    
+
+                    <button class="btn btn-success" type="submit">POST</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </form>
+        
+    </div>
+
+    
+
+</div>
+
+<script src="/addMore/itemPopup.js"></script>

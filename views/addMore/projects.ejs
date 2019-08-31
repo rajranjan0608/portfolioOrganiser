@@ -1,0 +1,51 @@
+<link href="/addMore/projects/style.css" rel="stylesheet">
+
+<div id="projectInput">
+
+    <div id="popupContact">
+        
+        <br><br><br>
+        
+        <!-- <span onclick="div_hide()" style="float:right" class="x">X</span> -->
+
+        <form action="/projects" method="POST">
+
+            <input hidden name="url" value="<%=url%>">
+
+            <input hidden name="username" value="<%=user.username%>">
+
+        <div  style="margin-top:20px; width:350px; text-align: center" class="container ">
+
+            <div style="margin-bottom:20px" class="card text-center">
+                    
+                <div class="card-header">
+                    <input class="form-control" name="project[briefTitle]" style="text-align:center" placeholder="Title of the Project">
+                </div>
+                
+                <div class="card-body">
+                    <p>
+                        <textarea class="form-control" name="project[briefDesc]" rows="4" placeholder="Briefly describe your Project"></textarea>
+                    </p>
+                    
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+                
+                <div class="card-footer text-muted">
+                    <input class="form-control" style="text-align:center" name="project[techUsed]" placeholder="Technology Used">
+                </div>
+
+            </div>
+
+            <button class="btn btn-success" type="submit">POST</button>
+
+        </div>
+
+        </form>
+        
+    </div>
+
+    
+
+</div>
+
+<script src="/addMore/itemPopup.js"></script>

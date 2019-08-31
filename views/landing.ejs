@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page</title>
+</head>
+
+<link href="/landing/style.css" rel="stylesheet">
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+    <div style="margin-top:100px; margin-left:20px;display:inline-block">
+
+        <h1 style="color:white">
+            Organise your portfolio within a minute...<br><br>
+            <div style="margin-right:15px">
+
+                <input onkeyup="searchUsers()" class="form-control" id="users_search" placeholder="Search friends and coleagues by email, username or name">
+
+            </div>
+
+        </h1>
+
+        <style>
+            @media only screen and (max-width: 600px) {
+
+                #searchResults{
+                    width:200px;
+                    text-align: center;
+                }
+            }
+
+            @media only screen and (min-width: 600px) {
+
+                #searchResults{
+                    width:900px;
+                }
+            }
+
+        </style>
+
+        
+        <div id="searchResults">
+
+                    
+
+        </div>
+
+    </div>
+
+    <%if(!currentUser){%>
+
+        <div id="signUp" style="display:none; float:right; margin:20px; margin-right:28px ">
+
+            <div class="container">
+            
+                <div class="row">
+                
+                    <div class="card card-signin flex-row my-5">
+                
+                        <div class="card-body">
+                    
+                            <h5 class="card-title text-center">Register</h5>
+                    
+                            <form action="/signup" method="POST" class="form-signin">
+
+                                <input hidden name="url" value="<%=url%>">
+                                
+                                <div class="form-label-group">
+                                    <input type="text" name="username" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                                    <label for="inputUserame">Username</label>
+                                </div>
+                
+                                <div class="form-label-group">
+                                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                    <label for="inputEmail">Email address</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" name="fullName" id="inputEmail" class="form-control" placeholder="Full Name" required>
+                                    <label for="inputEmail">Full Name</label>
+                                </div>
+                                
+                                <hr>
+                
+                                <div class="form-label-group">
+                                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    <label for="inputPassword">Password</label>
+                                </div>
+                                
+                                <div class="form-label-group">
+                                    <input type="password" name="cpassword" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                                    <label for="inputConfirmPassword">Confirm password</label>
+                                </div>
+                
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                                
+                                <a class="d-block text-center mt-2 small" style="cursor:pointer; color:blue" onclick="showSignIn()">Sign In</a>
+                                
+                                <hr class="my-4">
+                                
+                                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><font color=orange> Sign up with</font> <font size=4 color=red><i class="fa fa-google mr-2"></i></font></button>
+                                
+                            </form>
+                
+                        </div>
+                
+                    </div>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+
+        <div id="signIn" style="float:right; margin:20px;margin-right:28px">
+
+            <div class="container">
+            
+                <div class="row">
+            
+                        <div class="card card-signin flex-row my-5">
+                    
+                            <div class="card-body">
+                        
+                                <h5 class="card-title text-center">Sign In</h5>
+                        
+                                <form action="/signin" method="POST" class="form-signin">
+
+                                    <input hidden name="url" value="<%=url%>">
+
+                                    <div class="form-label-group">
+                                        <input type="text" name="username" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                                        <label for="inputUserame">Username</label>
+                                    </div>
+                                    
+                    
+                                    <div class="form-label-group">
+                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                        <label for="inputPassword">Password</label>
+                                    </div>
+                                    
+                                    
+                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign In</button>
+                                
+                                    <a class="d-block text-center mt-2 small" style="cursor:pointer; color:blue" onclick="showSignUp()">Register Here</a>
+                                
+                                    <hr class="my-4">
+                                    
+                                    <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><font color=orange> Sign up with</font> <font size=4 color=red><i class="fa fa-google mr-2"></i></font></button>
+                                
+                                </form>
+                    
+                            </div>
+                
+                        </div>
+            
+                </div>
+            
+            </div>
+
+        </div>
+
+    <%}else{%>
+
+       
+
+    <%}%>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/landing/script.js"></script>
+<script src="/index/script.js"></script>
+</html>
