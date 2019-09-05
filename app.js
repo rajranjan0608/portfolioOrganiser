@@ -28,7 +28,7 @@ passport.use(new localStrategy(user.authenticate()));
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
-var server= app.listen(3000, function(){
+var server= app.listen(process.env.PORT||3000, function(){
     console.log("Server started at port 3000");
 });
 
