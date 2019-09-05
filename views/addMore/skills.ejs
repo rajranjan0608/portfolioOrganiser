@@ -1,0 +1,71 @@
+<link href="/addMore/skills/style.css" rel="stylesheet">
+
+<div id="skillsInput">
+
+    <div>
+        
+        <br><br><br>
+        
+        <!-- <span onclick="div_hide()" style="float:right" class="x">X</span> -->
+
+        <form action="/skills" method="POST">
+
+            <input hidden name="url" value="<%=url%>">
+
+            <input hidden name="username" value="<%=user.username%>">
+
+            <div  style="margin-top:20px; width:350px; text-align: center" class="container ">
+
+                <div style="margin-bottom:20px" class="card text-center">
+                        
+                    <div class="card-header">
+                        Add Skills
+                    </div>
+                    
+                    <div class="card-body">
+
+                        <input class="form-control" name="skills[title]" placeholder="Skill Title" required><br>
+                        
+                        <!-- <input type="checkbox" name="skills[isCustomInfo]" value="true" /><label style="margin-left:5px; margin-bottom:10px;">Make Custom Info</label> -->
+
+                        <span id="nonCustomInfo">
+
+                            <select name="skills[expertise]" class="form-control" style="margin-bottom:10px">
+                                <option value="">Expertise Level</option>
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Advanced</option>
+                            </select>
+
+                            <select name="skills[experience]" class="form-control" style="margin-bottom:10px">
+                                <option value="">Experience with Skill</option>
+                                <option>0-1 Year</option>
+                                <option>1-2 Years</option>
+                                <option>2-3 Years</option>
+                                <option>4-5 Years</option>
+                                <option>5+ Years</option>
+                            </select>
+
+                            <input class="form-control" type="number" name="skills[usedInProjects]" placeholder="Number of Projects"><br>
+                            
+                        </span>
+
+                    </div>
+                    
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-success" type="submit">POST</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+        
+    </div>
+
+    
+
+</div>
+
+<script src="/addMore/itemPopup.js"></script>

@@ -1,0 +1,60 @@
+<link href="/addMore/awards/style.css" rel="stylesheet">
+
+<div id="awardInput">
+
+    <div>
+        
+        <br><br><br>
+        
+        <!-- <span onclick="div_hide()" style="float:right" class="x">X</span> -->
+
+        <form action="/award" method="POST">
+
+            <input hidden name="url" value="<%=url%>">
+
+            <input hidden name="username" value="<%=user.username%>">
+
+            <div  style="margin-top:20px; width:350px; text-align: center" class="container ">
+
+                <div style="margin-bottom:20px" class="card text-center">
+                        
+                    <div class="card-header">
+                        Awards and Certifications
+                    </div>
+                    
+                    <div class="card-body">
+
+                        <input class="form-control" name="awards[title]" placeholder="Award or Certification Name" required><br>
+                        
+                        <!-- <input type="checkbox" name="skills[isCustomInfo]" value="true" /><label style="margin-left:5px; margin-bottom:10px;">Make Custom Info</label> -->
+
+                        <span>
+
+                            <input type='number' class="form-control" name="awards[year]" placeholder="Year"><br>                            
+
+                            <input class="form-control" name="awards[how]" placeholder="Reason of Being Awarded (5 words)"><br>                            
+
+                            <input class="form-control" name="awards[organisation]" placeholder="Organisation which Awarded you"><br>                            
+
+
+                        </span>
+
+                    </div>
+                    
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-success" type="submit">POST</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+        
+    </div>
+
+    
+
+</div>
+
+<script src="/addMore/itemPopup.js"></script>

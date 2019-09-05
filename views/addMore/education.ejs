@@ -1,0 +1,63 @@
+<link href="/addMore/education/style.css" rel="stylesheet">
+
+<div id="educationInput">
+
+    <div>
+        
+        <br><br><br>
+        
+        <!-- <span onclick="div_hide()" style="float:right" class="x">X</span> -->
+
+        <form action="/education" method="POST">
+
+            <input hidden name="url" value="<%=url%>">
+
+            <input hidden name="username" value="<%=user.username%>">
+
+            <div  style="margin-top:20px; width:350px; text-align: center" class="container ">
+
+                <div style="margin-bottom:20px" class="card text-center">
+                        
+                    <div class="card-header">
+                        Add Education
+                    </div>
+                    
+                    <div class="card-body">
+
+                        <input class="form-control" name="education[title]" placeholder="Institute or School" required><br>
+                        
+                        <!-- <input type="checkbox" name="skills[isCustomInfo]" value="true" /><label style="margin-left:5px; margin-bottom:10px;">Make Custom Info</label> -->
+
+                        <span>
+
+                            <input type="radio" style="margin-right:5px" name="education[isStudied]" value="true" checked><label>Studied</label>
+                            <input type="radio" style="margin-right:5px; margin-left:60px" name="education[isStudied]" value="false"><label>Studying</label><br>                       
+
+                            <input class="form-control" name="education[degree]" placeholder="Degree"><br>                            
+
+                            <input class="form-control" name="education[period]" placeholder="Years Active"><br>                            
+
+                            <input class="form-control" name="education[location]" placeholder="Institute's Location"><br>                            
+
+
+                        </span>
+
+                    </div>
+                    
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-success" type="submit">POST</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+        
+    </div>
+
+    
+
+</div>
+
+<script src="/addMore/itemPopup.js"></script>

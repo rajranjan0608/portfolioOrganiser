@@ -1,0 +1,54 @@
+<div id="projects" style="margin-top:20px" class="card">
+
+    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Projects 
+            <%if(currentUser){%>
+
+                <%if(currentUser.username==user.username){%>
+                    <span style="float:right; margin-right:10px; cursor:pointer;" onclick="itemPopup('projectInput')">+</span> 
+                <%}%>
+
+            <%}%>
+
+        <hr>
+    </h3>
+    
+    <div class="card-deck">
+
+        <%if(user.projects.length){%>
+            
+            <%user.projects.forEach(function(project){%>
+
+                <div  style="margin-top:20px; width:350px;" class="container">
+
+                    <div style="margin-bottom:20px" class="card text-center">
+                    
+                        <div class="card-header">
+                            <%=project.briefTitle%>
+                        </div>
+                        
+                        <div class="card-body scroll">
+                            <p class="card-text"><%=project.briefDesc%></p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                        
+                        <div class="card-footer text-muted">
+                                <%=project.techUsed%>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <%});%>
+
+        <%}%>
+        
+    </div>
+
+    <%if(!user.projects.length){%>
+
+        <h5 style="text-align:center">No Projects Added</h5>
+
+    <%}%>
+
+</div>

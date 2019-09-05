@@ -1,0 +1,102 @@
+<div class="card">
+
+    <div style="margin-left:5px">
+
+        <div>
+
+            <h1>
+                <img id="profileImage" style="margin-top:5px; width:50px" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<%=user.profileImage%>" alt="">
+                
+                <font color=#f59b42 ><%=user.fullName%></font><font color=#db5732></font>
+                
+                <%if(currentUser){%>
+
+                    <%if(currentUser.username==user.username){%>
+                        
+                        <span style="float:right; margin-right:10px; margin-top:-8px; cursor:pointer;" onclick="itemPopup('aboutInput')">
+                            <i class="fa fa-edit" style="font-size:24px;"></i>
+                        </span> 
+
+                    <%}%>
+
+                <%}%>
+            
+            </h1>
+        
+            <div style="margin-left:5px">
+
+                <span>
+                    <i class="fa fa-linkedin" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
+                </span>
+
+                <span>
+                    <i class="fa fa-github" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
+                </span>
+
+                <span>
+                    <i class="fa fa-twitter" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
+                </span>
+
+                <span>
+                    <i class="fa fa-facebook" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
+                </span>
+
+            </div><br>
+
+            <h6 style="color:rgb(68, 65, 65)">
+                <%if(user.about.length){%>
+                    <%=user.about[0].info%>
+                <%}else{%>
+
+                    <%if(currentUser){%>
+
+                        <%if(currentUser.username==user.username){%>
+
+                            Edit your info...
+
+                        <%}%>
+
+                    <%}%>
+
+                <%}%>
+            </h6>
+
+            <img src='/icons/close-envelope.png' style="width:20px; margin-right: 10px;"><a style="color:black" href="mailto:rranjan01234@gmail.com"><%=user.email%></a><br><br>
+
+            <div id="contactDetails" style="display:none">
+                
+                <%if(user.about.length){%>
+                <i class="fa fa-linkedin" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
+                <a href="#"><%=user.about[0].linkedin%></a><br>
+                <%}%>
+
+                <%if(user.about.length){%>
+                <i class="fa fa-github" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
+                <a href="#"><%=user.about[0].github%></a><br>
+                <%}%>
+                
+                <%if(user.about.length){%>
+                <i class="fa fa-facebook" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
+                <a href="#"><%=user.about[0].facebook%></a><br>
+                <%}%>
+
+                <%if(user.about.length){%>
+                <i class="fa fa-twitter" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
+                <a href="#"><%=user.about[0].twitter%></a><br>
+                <%}%>
+
+                <%if(!user.about.length){%>
+                    No Contact Details available.
+                <%}%>
+
+            </div>
+
+            <div  style="cursor:pointer; margin-left:-5px" onclick="showMore('contactDetails')" class="text-center card-footer text-muted">
+                Contact Details
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

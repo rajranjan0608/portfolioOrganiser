@@ -9,9 +9,14 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <%if(user){%>
-        <title><%=user.fullName%></title>
+        
+            <title><%=user.fullName%></title>
+            <link rel = "icon" href ="<%=user.profileImage%>" type = "image/x-icon"> 
+        
         <%}else{%>
+        
             <title>No users found</title>
+        
         <%}%>
 
     </head>
@@ -35,25 +40,29 @@
     </style>
     
     <body>
-        
-        <div class="sidenav">
-
-            <div class="text-center">
-
-                <img style="width:100px" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<%=user.profileImage%>" alt="">
-
-                <a href="#"><font size=4>About</font></a>
-                <a href="#projects"><font size=4>Projects</font></a>
-                <a href="#skills"><font size=4>Skills</font></a>
-                <a href="#experience"><font size=4>Experience</font></a>
-                <a href="#education"><font size=4>Education</font></a>
-                <a href="#awards"><font size=4>Awards</font></a>
-
-            </div>
-
-        </div>  
 
         <%if(user){%>
+
+            <!------------------SIDENAV-------------------------------->
+        
+            <div class="sidenav">
+
+                <div class="text-center">
+
+                    <img style="width:100px" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<%=user.profileImage%>" alt="">
+
+                    <a href="#"><font size=4>About</font></a>
+                    <a href="#projects"><font size=4>Projects</font></a>
+                    <a href="#skills"><font size=4>Skills</font></a>
+                    <a href="#experience"><font size=4>Experience</font></a>
+                    <a href="#education"><font size=4>Education</font></a>
+                    <a href="#awards"><font size=4>Awards</font></a>
+
+                </div>
+
+            </div>  
+
+            <!-------------------------------------------------------------->
 
             <script>
             
@@ -79,206 +88,69 @@
                         <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
 
-                    <input id="users_search" onkeyup="searchUsers()" onclick="itemPopup('searchInPortfolio')" class="form-control" placeholder="Search User by email, username or name">
+                    <input style="width:50px" id="users_search" onkeyup="searchUsers()" onclick="itemPopup('searchInPortfolio')" class="form-control" placeholder="Search User by email, username or name">
                 
+                    <a href="/" class="btn btn-info" style="margin-left:15px">Home</a>
+
                 </div>
 
                 <!-----------ABOUT-------------------------------->
 
-                <div class="card">
-
-                    <div style="margin-left:5px">
-
-                        <div>
-
-                            <h1>
-                                <img id="profileImage" style="margin-top:5px; width:50px" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<%=user.profileImage%>" alt="">
-                                
-                                <font color=#f59b42 ><%=user.fullName%></font><font color=#db5732></font>
-                                
-                                <span style="float:right; margin-right:10px; margin-top:-8px; cursor:pointer;" onclick="itemPopup('aboutInput')">
-                                    <i class="fa fa-edit" style="font-size:24px;"></i>
-                                </span> 
-                            
-                            </h1>
-                        
-                            <div style="margin-left:5px">
-
-                                <span>
-                                    <i class="fa fa-linkedin" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
-                                </span>
-
-                                <span>
-                                    <i class="fa fa-github" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
-                                </span>
-
-                                <span>
-                                    <i class="fa fa-twitter" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
-                                </span>
-
-                                <span>
-                                    <i class="fa fa-facebook" style="font-size:34px; margin-right:20px; cursor:pointer" onclick="location.href='#'"></i>
-                                </span>
-
-                            </div><br>
-
-                            <h6 style="color:rgb(68, 65, 65)">
-                                <%if(user.about.length){%>
-                                    <%=user.about[0].info%>
-                                <%}else{%>
-                                    Edi your info...
-                                <%}%>
-                            </h6>
-
-                            <a style="color:black" href="mailto:rranjan01234@gmail.com"><%=user.email%></a><br><br>
-
-                            <div id="contactDetails" style="display:none">
-                                
-                                <%if(user.about.length){%>
-                                <i class="fa fa-linkedin" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
-                                <a href="#"><%=user.about[0].linkedin%></a><br>
-                                <%}%>
-
-                                <%if(user.about.length){%>
-                                <i class="fa fa-github" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
-                                <a href="#"><%=user.about[0].github%></a><br>
-                                <%}%>
-                                
-                                <%if(user.about.length){%>
-                                <i class="fa fa-facebook" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
-                                <a href="#"><%=user.about[0].facebook%></a><br>
-                                <%}%>
-
-                                <%if(user.about.length){%>
-                                <i class="fa fa-twitter" style="font-size:24px; margin-right:10px; cursor:pointer" onclick="location.href='#'"></i>
-                                <a href="#"><%=user.about[0].twitter%></a><br>
-                                <%}%>
-
-                                <%if(!user.about.length){%>
-                                    No Contact Details available.
-                                <%}%>
-
-                            </div>
-
-                            <div  style="cursor:pointer; margin-left:-5px" onclick="showMore('contactDetails')" class="text-center card-footer text-muted">
-                                Contact Details
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <%include ./userPortBlocks/about.ejs%>
 
                 <!------------------------------------------------>
 
 
                 <!-----------PROJECTS----------------------------->
 
-                <div id="projects" style="margin-top:20px" class="card">
-
-                    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Projects <span style="float:right; margin-right:10px; cursor:pointer;" onclick="itemPopup('projectInput')">+</span> <hr></h3>
-                    
-                    <div class="card-deck">
-
-                        <%if(user.projects.length){%>
-                            
-                            <%user.projects.forEach(function(project){%>
-
-                                <div  style="margin-top:20px; width:350px;" class="container">
-
-                                    <div style="margin-bottom:20px" class="card text-center">
-                                    
-                                        <div class="card-header">
-                                            <%=project.briefTitle%>
-                                        </div>
-                                        
-                                        <div class="card-body scroll">
-                                            <p class="card-text"><%=project.briefDesc%></p>
-                                            <a href="#" class="btn btn-primary">Details</a>
-                                        </div>
-                                        
-                                        <div class="card-footer text-muted">
-                                                <%=project.techUsed%>
-                                        </div>
-            
-                                    </div>
-
-                                </div>
-
-                            <%});%>
-
-                        <%}%>
-                        
-                    </div>
-
-                    <%if(!user.projects.length){%>
-
-                        <h5 style="text-align:center">No Projects Added</h5>
-
-                    <%}%>
-
-                </div>
+                <%include ./userPortBlocks/projects.ejs%>
 
                 <!------------------------------------------------->
 
                 <!--------------SKILLS----------------------------->
 
-                <div id="skills" style="margin-top:20px" class="card">
-
-                    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Skills <span style="float:right; margin-right:10px; cursor:pointer;" onclick="">+</span> <hr></h3>
-
-                    <h5 style="text-align:center">No Skills Added</h5>
-
-                </div>
+                <%include ./userPortBlocks/skills.ejs%>
 
                 <!------------------------------------------------->
 
                 <!--------------EXPERIENCE----------------------------->
 
-                <div id="experience" style="margin-top:20px" class="card">
-
-                    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Experience <span style="float:right; margin-right:10px; cursor:pointer;" onclick="">+</span> <hr></h3>
-
-                    <h5 style="text-align:center">No Experience Added</h5>
-
-                </div>
+                <%include ./userPortBlocks/experience.ejs%>
 
                 <!------------------------------------------------->
 
                 <!---------------EDUCATION---------------------------->
 
-                <div id="education" style="margin-top:20px" class="card">
-
-                    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Education <span style="float:right; margin-right:10px; cursor:pointer;" onclick="">+</span> <hr></h3>
-
-                    <h5 style="text-align:center">No Education Added</h5>
-
-                </div>
+                <%include ./userPortBlocks/education.ejs%>
 
                 <!------------------------------------------------->
 
                 <!--------------AWARDS----------------------------->
 
-                <div id="awards" style="margin-top:20px" class="card">
-
-                    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Awards <span style="float:right; margin-right:10px; cursor:pointer;" onclick="">+</span> <hr></h3>
-
-                    <h5 style="text-align:center">No Awards Added</h5>
-
-                </div>
+                <%include ./userPortBlocks/awards.ejs%>
 
                 <!------------------------------------------------->
 
+                <br>
+
                 <%include ./addMore/projects.ejs%>
+                <%include ./addMore/skills.ejs%>
+                <%include ./addMore/experience.ejs%>
+                <%include ./addMore/education.ejs%>
+                <%include ./addMore/awards.ejs%>
                 <%include ./addMore/about.ejs%>
                 <%include ./searchInPortfolio.ejs%>
+
             </div>
 
         <%}else{%>
 
-            <div style="margin-top:20px" class="main text-center">
+            <div style="margin-top:20px" class="text-center">
+                
                 <h1>No users found in the Database</h1>
+                
+                <a href="/"><button  style="margin-top:30px;" class="btn btn-success">Home</button></a>
+            
             </div>
 
         <%}%>

@@ -36,10 +36,40 @@ var userSchema=new mongoose.Schema({
             techUsed: String
         }
     ],
-    skills:[String],
-    experience:[String],
-    education:[String],
-    awards:[String]
+    skills:[
+        {
+            title:String,
+            isCustomInfo:Boolean,
+            customInfo:String,
+            expertise:String,
+            experience:String,
+            usedInProjects:String
+        }
+    ],
+    experience:[
+        {
+            title:String,
+            isWorked:Boolean,
+            period:String,
+            organisation:String
+        }
+    ],
+    education:[
+        {
+            title:String,
+            degree:String,
+            period:String,
+            location:String
+        }
+    ],
+    awards:[
+        {
+            title:String,
+            year:Number,
+            how:String,
+            organisation:String
+        }
+    ]
 
 });
 

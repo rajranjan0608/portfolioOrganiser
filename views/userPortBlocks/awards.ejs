@@ -1,0 +1,75 @@
+<div id="awards" style="margin-top:20px" class="card">
+
+    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Awards and Certifications
+
+            <%if(currentUser){%>
+
+                <%if(currentUser.username==user.username){%>
+        
+                    <span style="float:right; margin-right:10px; cursor:pointer;" onclick="itemPopup('awardInput')">+</span>
+        
+                <%}%>
+
+            <%}%>
+
+        <hr>
+    </h3>
+
+    <%if(user.awards.length){%>
+
+        <%user.awards.forEach(function(award){%>
+
+        <h6 style="margin-left:10px; width:300px"><img src='/icons/trophy.png' style="width:20px;">
+            
+            <span style="cursor:pointer; margin-left:10px;"><%=award.title%></span><br>
+            
+            <p style="margin-left:34px;" class="text-muted">
+        
+                <font size=2>
+                    
+                    <%if(award.year.length!=0 && award.how.length!=0){%>
+                        
+                        <%=award.year%> | 
+                    
+                    <%}else if(award.year.length!=0 && award.how.length==0){%>
+                    
+                        <%=award.year%>
+                    
+                        <%if(award.year.length!=0 && award.organisation.length!=0){%>
+                            |
+                        <%}%>
+                    
+                    <%}%>
+                    
+                    <%if(award.how.length!=0 && award.organisation.length!=0){%>
+                    
+                        <%=award.how%> |
+                    
+                    <%}else if(award.how.length!=0 && award.organisation.length==0){%>
+                    
+                        <%=award.how%>
+                    
+                    <%}%>
+                    
+                    <%if(award.organisation.length!=0){%>
+                    
+                        By <%=award.organisation%>
+                    
+                    <%}%>
+
+                    <hr style="margin-left:30px;">
+                </font>
+                
+            </p>
+        
+        </h6>
+
+        <%})%>
+
+    <%}else{%>
+    
+        <h5 style="text-align:center">No Awards Added</h5>
+
+    <%}%>   
+        
+</div>

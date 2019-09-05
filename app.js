@@ -69,14 +69,6 @@ app.get("/user/:username", function(req, res){
     });
 })
 
-app.post("/projects", function(req,res){
-    user.findOne({username:req.body.username}, function(err,user){
-        user.projects.push(req.body.project);
-        user.save();
-    });    
-    res.redirect(req.body.url);
-});
-
 app.post("/about", function(req,res){
     user.findOne({username:req.body.username}, function(err,user){
         user.about=req.body.about;
@@ -85,15 +77,45 @@ app.post("/about", function(req,res){
     res.redirect(req.body.url);
 });
 
-app.post("/skills", function(req,res){
+app.post("/projects", function(req,res){
     user.findOne({username:req.body.username}, function(err,user){
-        user.skills.push(req.body.skill);
+        user.projects.push(req.body.project);
         user.save();
     });    
     res.redirect(req.body.url);
 });
 
+app.post("/skills", function(req,res){
+    user.findOne({username:req.body.username}, function(err,user){
+        user.skills.push(req.body.skills);
+        user.save();
+    });    
+    res.redirect(req.body.url);
+});
 
+app.post("/experience", function(req,res){
+    user.findOne({username:req.body.username}, function(err,user){
+        user.experience.push(req.body.experience);
+        user.save();
+    });    
+    res.redirect(req.body.url);
+});
+
+app.post("/education", function(req,res){
+    user.findOne({username:req.body.username}, function(err,user){
+        user.education.push(req.body.education);
+        user.save();
+    });    
+    res.redirect(req.body.url);
+});
+
+app.post("/award", function(req,res){
+    user.findOne({username:req.body.username}, function(err,user){
+        user.awards.push(req.body.awards);
+        user.save();
+    });    
+    res.redirect(req.body.url);
+});
 
 //AUTHENTICATION
 

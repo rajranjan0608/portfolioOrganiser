@@ -1,0 +1,74 @@
+<div id="skills" style="margin-top:20px" class="card">
+
+    <h3 style="margin-left:5px; margin-top:5px; color:#c95024">Skills
+            <%if(currentUser){%>
+
+                <%if(currentUser.username==user.username){%>
+        
+                    <span style="float:right; margin-right:10px; cursor:pointer;" onclick="itemPopup('skillsInput')">+</span>
+        
+                <%}%>
+
+            <%}%>
+        <hr>
+    </h3>
+
+    <%if(user.skills.length){%>
+
+        <%user.skills.forEach(function(skill){%>
+    
+            <h6 style="margin-left:10px; width:300px"><img src='/icons/settings.png' style="width:20px;">
+                
+                <span style="cursor:pointer; margin-left:10px;"><%=skill.title%></span><br>
+                
+                <p style="margin-left:34px;" class="text-muted">
+            
+                    <font size=2>
+                        
+                        <%if(skill.expertise.length!=0 && skill.experience.length!=0){%>
+                            
+                            <%=skill.expertise%> | 
+                        
+                        <%}else if(skill.expertise.length!=0 && skill.experience.length==0){%>
+                        
+                            <%=skill.expertise%>
+                        
+                            <%if(skill.expertise.length!=0 && skill.usedInProjects.length!=0){%>
+                                |
+                            <%}%>
+                        
+                        <%}%>
+                        
+                        <%if(skill.experience.length!=0 && skill.usedInProjects.length!=0){%>
+                        
+                            Experience of <%=skill.experience%> |
+                        
+                        <%}else if(skill.experience.length!=0 && skill.usedInProjects.length==0){%>
+                        
+                            Experience of <%=skill.experience%>
+                        
+                        <%}%>
+                        
+                        <%if(skill.usedInProjects.length!=0){%>
+                        
+                            Used in <%=skill.usedInProjects%> projects.
+                        
+                        <%}%>
+                        
+                        <hr style="margin-left:30px;">
+                    
+                    </font>
+                    
+                </p>
+            
+            </h6>
+
+        <%})%>
+
+    <%}else{%>
+
+        <h5 style="text-align:center">No Skills Added</h5>
+
+    <%}%>
+
+</div>
