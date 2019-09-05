@@ -5,6 +5,8 @@ var bodyParser          = require("body-parser");
 var passport            =require("passport");
 var localStrategy       =require("passport-local");
 
+require("dotenv").config();
+
 var randomString        =require("randomstring");
 
 var user                = require("./models/user")
@@ -40,8 +42,8 @@ app.use(function(req,res,next){
     next();
 });
 
-mongoURI="mongodb://localhost/projectsPage";
-// mongoURI=process.env.MONGOURI;
+// mongoURI="mongodb://localhost/projectsPage";
+mongoURI=process.env.MONGOURI;
 
 mongoose.connect(mongoURI,{useNewUrlParser: true});
 app.use(bodyParser.json());
@@ -188,6 +190,12 @@ app.post("/signin",function(req,res){
         }
     });    
 });
+
+//LOGOUT
+app.get("/logout", function(req,res){
+    req.logout();
+    res.redirect(req.query.url);
+})
 
 //SOCKET PROGRAMMING ALONG WITH MONGODB DATABASE
 

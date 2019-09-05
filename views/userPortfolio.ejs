@@ -92,6 +92,16 @@
                 
                     <a href="/" class="btn btn-info" style="margin-left:15px">Home</a>
 
+                    <%if(currentUser){%>
+                        
+                        <a href="/logout?url=<%=url%>" class="btn btn-danger" style="margin-left:15px">Log Out</a>   
+
+                    <%}else{%>
+
+                        <a href="/" class="btn btn-success" style="margin-left:15px">Log In</a>
+
+                    <%}%>
+
                 </div>
 
                 <!-----------ABOUT-------------------------------->
